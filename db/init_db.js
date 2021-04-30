@@ -52,10 +52,10 @@ async function rebuildDB() {
 
 async function testDB() {
   try {
-    // await dropTables();
-    // await createTables();
-    const id = await getClientById(830515);
-    const all = await getAllClients();
+    await dropTables();
+    await createTables();
+    // const id = await getClientById(830515);
+    // const all = await getAllClients();
 
     console.log(id);
     console.log(all);
