@@ -9,6 +9,10 @@ const Card = ({ clients, searchInput, setSearchInput }) => {
           const clientsId = client.gvr.toLowerCase();
           if (clientsId.includes(searchInput.toLowerCase())) {
             return true;
+          }
+          const companyName = client.comp.toLowerCase();
+          if (companyName.includes(searchInput.toLowerCase())) {
+            return true;
           } else {
             return false;
           }
