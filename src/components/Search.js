@@ -6,9 +6,10 @@ const SearchBar = ({ searchInput, setSearchInput }) => {
   };
 
   return (
-    <div className="search">
-      <form>
+    <div >
+      <form >
         <input
+        className="search"
           type="text"
           placeholder="Enter GVR ID"
           value={searchInput}

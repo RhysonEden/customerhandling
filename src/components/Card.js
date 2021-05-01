@@ -19,13 +19,15 @@ const Card = ({ clients, searchInput, setSearchInput }) => {
         })
         .map((client, index) => (
           <div key={index} className="card">
-            <div className="subcard">Company Name : {client.comp}</div>
-            <div className="subcard">GVR ID : {client.gvr}</div>
-            <div className="subcard">
-              Primary Contact E-Mail : {client.email1}
+            <div className="subcardhead">Company Name : {client.comp}</div>
+            <div className="subcardhead">GVR ID : {client.gvr}</div>
+            <div className="subcardhead">
+              Primary Contact E-Mail : {" "}
+              <a href={`mailto:${client.email1}`}>{client.email1}</a>
             </div>
-            <div className="subcard">
-              Secondary Contact E-Mail : {client.email2}
+            <div className="subcardhead">
+              Secondary Contact E-Mail : {" "}
+              <a href={`mailto:${client.email2}`}>{client.email2} </a>
             </div>
             <div className="subcardwarr">Warranty Handling</div>
             <li className="subcard">Notification : {client.noticewar}</li>
