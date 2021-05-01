@@ -21,6 +21,7 @@ const Card = ({ clients, searchInput, setSearchInput }) => {
           <div key={index} className="card">
             <div className="subcardhead">Company Name : {client.comp}</div>
             <div className="subcardhead">GVR ID : {client.gvr}</div>
+            <div className="subcardhead">Store Number : <a href={`tel:${client.phone}`}>{client.phone}</a></div>
             <div className="subcardhead">
               Primary Contact E-Mail : {" "}
               <a href={`mailto:${client.email1}`}>{client.email1}</a>
