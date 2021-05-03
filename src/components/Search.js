@@ -5,9 +5,14 @@ const SearchBar = ({ searchInput, setSearchInput }) => {
     setSearchInput(e.target.value);
   };
 
+  const handleClear = (e) => {
+    e.preventDefault();
+    setSearchInput("")
+  }
+
   return (
-    <div >
-      <form >
+    <div className='inputWithButton'>
+      {/* <form > */}
         <input
         className="search"
           type="text"
@@ -15,7 +20,9 @@ const SearchBar = ({ searchInput, setSearchInput }) => {
           value={searchInput}
           onChange={handleTextChange}
         />
-      </form>
+        <button onClick={handleClear}>Clear</button>
+      {/* </form> */}
+      
     </div>
   );
 };
