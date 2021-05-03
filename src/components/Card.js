@@ -31,7 +31,7 @@ const Card = ({ clients, searchInput, setSearchInput }) => {
               <a href={`mailto:${client.email2}`}>{client.email2} </a>
             </div>
             <div className="subcardwarr">Warranty Handling</div>
-            <li className="subcard">Notification : {client.noticewar}</li>
+            <li className="subcard">Send Notification Email (Primary/Secondary): {client.noticewar}</li>
             <li className="subcard">Remote Diagnosis : {client.remodiagwar}</li>
             <li className="subcard">Remotely Repair : {client.remrepwar}</li>
             <li className="subcard">Dispatch Tech : {client.dispwar}</li>
