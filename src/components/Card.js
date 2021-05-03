@@ -37,6 +37,7 @@ const Card = ({ clients, searchInput, setSearchInput }) => {
             <li className="subcard">Dispatch Tech : {client.dispwar}</li>
             <div className="subcardwarr">Out of Warranty Handling</div>
             <li className="subcard">Notification : {client.noticeout}</li>
+            <li className="subcard">Remotely Diagnosis : {client.remdiagout}</li>
             <li className="subcard">Remotely Repair : {client.remrepout}</li>
             <li className="subcard">Dispatch Tech : {client.dispout}</li>
           </div>
