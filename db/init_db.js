@@ -1,44 +1,142 @@
 const bcrypt = require("bcrypt");
 const SALT_COUNT = 10;
-const { client, getClientById, getAllClients } = require("./index");
+const { client, getClientById, getAllClients,   createUser,
+} = require("./index");
 
 async function createTables() {
   try {
     console.log("Starting to Create Tables");
     await client.query(`
-        CREATE TABLE handling (
-          id SERIAL PRIMARY KEY,
-          gvr varchar UNIQUE NOT NULL,
-          comp varchar NOT NULL,
-          name varchar NOT NULL,
-          street varchar NOT NULL,
-          city varchar NOT NULL,
-          state varchar NOT NULL,
-          zip varchar NOT NULL,
-          number varchar NOT NULL,
-          warranty varchar,
-          email1 varchar NOT NULL,
-          email2 varchar NOT NULL,
-          noticewar varchar NOT NULL,
-          remodiagwar varchar NOT NULL,
-          remrepwar varchar NOT NULL,
-          dispwar varchar NOT NULL,
-          noticeout varchar NOT NULL,
-          remdiagout varchar NOT NULL,
-          remrepout varchar NOT NULL,
-          dispout varchar NOT NULL
-      )`);
+    CREATE TABLE users (
+      id SERIAL PRIMARY KEY,
+      username varchar UNIQUE NOT NULL,
+      password varchar NOT NULL,
+      email varchar NOT NULL,
+      admin varchar NOT NULL
+      );
+`);
     console.log("Finished Creating Table");
   } catch (error) {
     throw error;
   }
 }
 
+// CREATE TABLE handling (
+//   id SERIAL PRIMARY KEY,
+//   gvr varchar UNIQUE NOT NULL,
+//   comp varchar NOT NULL,
+//   name varchar NOT NULL,
+//   street varchar NOT NULL,
+//   city varchar NOT NULL,
+//   state varchar NOT NULL,
+//   zip varchar NOT NULL,
+//   number varchar NOT NULL,
+//   warranty varchar,
+//   email1 varchar NOT NULL,
+//   email2 varchar NOT NULL,
+//   noticewar varchar NOT NULL,
+//   remodiagwar varchar NOT NULL,
+//   remrepwar varchar NOT NULL,
+//   dispwar varchar NOT NULL,
+//   noticeout varchar NOT NULL,
+//   remdiagout varchar NOT NULL,
+//   remrepout varchar NOT NULL,
+//   dispout varchar NOT NULL
+// )
+
+async function createInitialUsers() {
+  try {
+    console.log("Starting to create users...");
+
+    await new Promise((resolve, reject) => {
+      bcrypt.hash("gft2020", SALT_COUNT, async function (err, hashedPassword) {
+        const david = await createUser({
+          username: "david",
+          password: hashedPassword,
+          email: "DMcMichael@guardianfueltech.com",
+          admin: false,
+        });
+        resolve();
+      });
+    });
+
+    await new Promise((resolve, reject) => {
+      bcrypt.hash("gft2020", SALT_COUNT, async function (err, hashedPassword) {
+        const admin = await createUser({
+          username: "@dm1ngft1",
+          password: hashedPassword,
+          email: "GuardianConnect@guardianfueltech.com",
+          admin: true,
+        });
+        resolve();
+      });
+    });
+
+    await new Promise((resolve, reject) => {
+      bcrypt.hash("gft2020", SALT_COUNT, async function (err, hashedPassword) {
+        const james = await createUser({
+          username: "james",
+          password: hashedPassword,
+          email: "jgale@guardianfueltech.com",
+          admin: false,
+        });
+        resolve();
+      });
+    });
+    await new Promise((resolve, reject) => {
+      bcrypt.hash("gft2020", SALT_COUNT, async function (err, hashedPassword) {
+        const chris = await createUser({
+          username: "chris",
+          password: hashedPassword,
+          email: "cfielder@guardianfueltech.com",
+          admin: false,
+        });
+        resolve();
+      });
+    });
+    await new Promise((resolve, reject) => {
+      bcrypt.hash(
+        "gc@gft2020",
+        SALT_COUNT,
+        async function (err, hashedPassword) {
+          const callcenter = await createUser({
+            username: "gftcenter",
+            password: hashedPassword,
+            email: "Guardianresourcecenter@guardianfueltech.com",
+            admin: false,
+          });
+          resolve();
+        }
+      );
+    });
+    await new Promise((resolve, reject) => {
+      bcrypt.hash(
+        "mr@gft2020",
+        SALT_COUNT,
+        async function (err, hashedPassword) {
+          const monica = await createUser({
+            username: "monica",
+            password: hashedPassword,
+            email: "mriley@guardianfueltech.com",
+            admin: false,
+          });
+          resolve();
+        }
+      );
+    });
+    console.log("Finished creating users!");
+  } catch (error) {
+    console.error("Error creating users!");
+    throw error;
+  }
+}
+
+
 async function dropTables() {
   try {
     console.log("Starting to drop tables...");
     await client.query(`
-      DROP TABLE IF EXISTS handling;
+      DROP TABLE IF EXISTS users;
       `);
 
     console.log("Finished dropping tables!");
@@ -61,6 +159,7 @@ async function testDB() {
   try {
     await dropTables();
     await createTables();
+    await createInitialUsers();
     // const id = await getClientById(830515);
     // const all = await getAllClients();
 

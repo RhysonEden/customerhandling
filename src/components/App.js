@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from "react";
-
+import Login from "./Login"
 import { getSomething } from "../api";
 import Card from "./Card";
 import Header from "./Header";
+import IdleTimerContainer from "./IdleTimerContainer";
 
 const App = () => {
   const [clients, setClient] = useState([]);
   const [searchInput, setSearchInput] = useState("");
+  let admin = sessionStorage.getItem("user");
 
   useEffect(() => {
     getSomething()
@@ -19,6 +21,15 @@ const App = () => {
       });
   }, []);
 
+
+// if (!admin) {
+//   return (
+//     <>
+//     <Login />
+//     <IdleTimerContainer />
+//     </>
+//   )
+// } else {
   return (
     <>
       <Header searchInput={searchInput} setSearchInput={setSearchInput} />
@@ -27,8 +38,10 @@ const App = () => {
         searchInput={searchInput}
         setSearchInput={setSearchInput}
       />
+      <IdleTimerContainer />
     </>
   );
+// }
 };
 
 export default App;

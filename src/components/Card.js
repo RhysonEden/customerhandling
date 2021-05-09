@@ -3,7 +3,6 @@ import React from "react";
 const Card = ({ clients, searchInput, setSearchInput }) => {
   return (
     <div className="App">
-      {console.log(searchInput)}
       {clients
         .filter((client) => {
           const clientsId = client.gvr.toLowerCase();

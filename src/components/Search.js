@@ -20,7 +20,7 @@ const SearchBar = ({ searchInput, setSearchInput }) => {
           value={searchInput}
           onChange={handleTextChange}
         />
-        <button onClick={handleClear}>Clear</button>
+        <button className="newButton" onClick={handleClear}>Clear</button>
       {/* </form> */}
       
     </div>
