@@ -47,7 +47,7 @@ async function createTables() {
 async function createInitialUsers() {
   try {
     console.log("Starting to create users...");
-
+    let jamesPassword = "gft2020";
     await new Promise((resolve, reject) => {
       bcrypt.hash("gft2020", SALT_COUNT, async function (err, hashedPassword) {
         const david = await createUser({
@@ -85,16 +85,22 @@ async function createInitialUsers() {
     });
 
     await new Promise((resolve, reject) => {
-      bcrypt.hash("gft2020", SALT_COUNT, async function (err, hashedPassword) {
-        const james = await createUser({
-          username: "james",
-          password: hashedPassword,
-          email: "jgale@guardianfueltech.com",
-          admin: true,
-          change: 1,
-        });
-        resolve();
-      });
+      bcrypt.hash(
+        jamesPassword,
+        SALT_COUNT,
+        async function (err, hashedPassword) {
+          const james = await createUser({
+            username: "james",
+            password: hashedPassword,
+            email: "jgale@guardianfueltech.com",
+            admin: true,
+            change: 1,
+          });
+          console.log(hashedPassword, "hashed");
+          console.log(jamesPassword, "non");
+          resolve();
+        }
+      );
     });
     await new Promise((resolve, reject) => {
       bcrypt.hash("gft2020", SALT_COUNT, async function (err, hashedPassword) {
