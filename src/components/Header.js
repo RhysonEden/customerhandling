@@ -58,6 +58,7 @@ const Header = ({ searchInput, setSearchInput }) => {
   } else {
     return (
       <div className="header">
+        <SearchBar searchInput={searchInput} setSearchInput={setSearchInput} />
         <div className="right">
           <button className="buttonfirst" onClick={handleClear}>
             Clear
@@ -66,7 +67,7 @@ const Header = ({ searchInput, setSearchInput }) => {
             Logout
           </button>
         </div>
-        <SearchBar searchInput={searchInput} setSearchInput={setSearchInput} />
+
         <div className="left">Hello, {user}!</div>
       </div>
     );
