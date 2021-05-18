@@ -11,6 +11,7 @@ export async function getSomething() {
 
 export async function loginUser(username, password) {
   try {
+    console.log(username, "login starting");
     const { data } = await axios.post("/api/users/login", {
       username,
       password,
