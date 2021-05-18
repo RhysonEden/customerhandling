@@ -37,6 +37,7 @@ const Header = ({ searchInput, setSearchInput }) => {
   if (admin === "true") {
     return (
       <div className="header">
+        <SearchBar searchInput={searchInput} setSearchInput={setSearchInput} />
         <div className="right">
           <button className="buttonfirst" onClick={handleClear}>
             Clear
@@ -51,7 +52,6 @@ const Header = ({ searchInput, setSearchInput }) => {
             Main
           </button>
         </div>
-        <SearchBar searchInput={searchInput} setSearchInput={setSearchInput} />
         <div className="left">Hello, {user}!</div>
       </div>
     );

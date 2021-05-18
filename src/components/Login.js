@@ -44,8 +44,8 @@ function Login({ main, setMain }) {
   };
 
   return (
-    <div className="page">
-      <form className="inputWithButton">
+    <div className="pagetwo">
+      <form className="inputWithButtonTwo">
         <input
           className="login"
           type="text"
@@ -62,7 +62,7 @@ function Login({ main, setMain }) {
           placeholder="Enter Password"
           onChange={changePassword}
         ></input>
-        <button className="buttonfirst" onClick={handleSubmit}>
+        <button className="buttonfirstlogin" onClick={handleSubmit}>
           Submit
         </button>
       </form>

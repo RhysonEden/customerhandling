@@ -8,18 +8,30 @@
     "left inputWithButton right"
     "card card card";
 }
+.pagetwo {
+  display: flex;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.buttonfirstlogin {
+  align-self: center;
+  margin-top: 10px;
+}
 .left {
   grid-area: left;
   display: flex;
   align-items: center;
 }
+.inputWithButton,
 .inputWithButton {
   grid-area: inputWithButton;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.buttonfirst {
+.buttonfirst,
+.buttonfirstlogin {
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
   background-color: #81cb2f;
   border-radius: 18px;
@@ -125,4 +137,84 @@
   position: -webkit-sticky;
   position: sticky;
   top: 0;
+}
+
+@media only screen and (max-device-width: 480px) {
+  select,
+  textarea,
+  input[type="text"],
+  input[type="password"],
+  input[type="datetime"],
+  input[type="datetime-local"],
+  input[type="date"],
+  input[type="month"],
+  input[type="time"],
+  input[type="week"],
+  input[type="number"],
+  input[type="email"],
+  input[type="tel"],
+  input[type="url"] {
+    font-size: 16px;
+  }
+
+  .page,
+  .pagetwo {
+    margin-left: -3px;
+    height: 215px;
+  }
+
+  .page {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 0px 0px;
+    grid-template-areas:
+      "right right right right"
+      "inputWithButton inputWithButton inputWithButton inputWithButton";
+  }
+  .inputWithButton {
+    margin-bottom: 10px;
+  }
+  .inputWithButton,
+  .inputWithButtonTwo {
+    grid-area: inputWithButton;
+    width: 100%;
+  }
+  .right {
+    grid-area: right;
+    width: 100%;
+  }
+  .inputWithButtonTwo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-self: center;
+  }
+  .login {
+    width: 85%;
+  }
+  .buttonfirst,
+  .buttonfirstlogin {
+    margin-right: 6px;
+  }
+  .cardmain {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .card {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+  .header {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    height: 100px;
+  }
+  .left {
+    display: none;
+  }
 }
