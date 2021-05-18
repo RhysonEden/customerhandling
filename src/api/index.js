@@ -11,12 +11,10 @@ export async function getSomething() {
 
 export async function loginUser(username, password) {
   try {
-    console.log(username, "login starting");
     const { data } = await axios.post("/api/users/login", {
       username,
       password,
     });
-    console.log("data", data);
     sessionStorage.setItem("change", data.user.change);
     sessionStorage.setItem("admin", data.user.admin);
     sessionStorage.setItem("token", data.token);

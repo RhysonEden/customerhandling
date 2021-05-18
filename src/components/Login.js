@@ -29,15 +29,13 @@ function Login({ main, setMain }) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("username", username);
-    console.log("password", password);
     try {
       await loginUser(users, pword).then((resp) => {
         if (!resp) {
           alert.show("Invalid Username or Password");
         } else {
           alert.show("Login Successfull");
-          // cancelCourse();
+          cancelCourse();
         }
       });
     } catch (err) {
