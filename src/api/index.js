@@ -2,7 +2,6 @@ import axios from "axios";
 
 export async function getSomething() {
   try {
-    console.log("run api/index");
     const { data } = await axios.get("/api/clients/clients");
     return data;
   } catch (error) {
@@ -16,6 +15,9 @@ export async function loginUser(username, password) {
       username,
       password,
     });
+    console.log("data", data);
+    sessionStorage.setItem("change", data.user.change);
+    sessionStorage.setItem("admin", data.user.admin);
     sessionStorage.setItem("token", data.token);
     sessionStorage.setItem("user", data.user.username);
     sessionStorage.setItem(
@@ -103,12 +105,15 @@ export default async function emailTotal(
   }
 }
 
-export async function userUpdate(username, password) {
+export async function userUpdate(username, password, change) {
   try {
+    console.log("change", change);
     const { data } = await axios.post("api/users/update", {
       username,
       password,
+      change,
     });
+    console.log("data", data);
     return data;
   } catch (error) {
     throw error;
@@ -145,7 +150,6 @@ export async function getAdminInfo(username) {
     const data = await axios.get(`/api/users/${username}`, {
       username,
     });
-
     return data;
   } catch (error) {
     throw error;

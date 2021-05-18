@@ -6,11 +6,34 @@
   flex-wrap: wrap;
 }
 
-/* .right {
+.inputWithButton {
+  position: relative;
+  height: 100px;
+  width : 200px;
+  right: 10%;
+}
+
+.search {
   display: flex;
-  justify-content: flex-end;
-  align-self: flex-end;
+  align-self: center;
+}
+
+/* .inputWithButton input{
+    width: 100%;
+    height: 40px;
+    padding-right: 25px;
 } */
+
+/* .inputWithButton button {
+  position: absolute;
+  right: 0;
+  top : 15px;
+} */
+
+.newButton {
+  position: absolute;
+  right: -300px;
+}
 
 .myButton {
 	box-shadow: 5px 5px 10px rgba(0,0,0,0.5);
@@ -31,22 +54,10 @@
 }
 
 
-.newButton {
+button {
   position: absolute;
   right: 475px;
   top : 13px;
-  box-shadow: 5px 5px 10px rgba(0,0,0,0.5);
-	background-color:#81cb2f;;
-	border-radius:18px;
-	border:1px solid black;
-	cursor:pointer;
-	color:#ffffff;
-}
-
-.submit {
-  position: absolute;
-  right: 550px;
-  top : 30px;
   box-shadow: 5px 5px 10px rgba(0,0,0,0.5);
 	background-color:#81cb2f;;
 	border-radius:18px;
@@ -71,21 +82,12 @@
   box-shadow: 5px 5px 10px rgba(0,0,0,0.5);
 }
 
-.page {
+/* .header {
   display: flex;
+  flex-direction: row;
   justify-content: center;
-}
-
-.form-input {
-  display: flex;
   align-content: center;
-  justify-content: center;
-  margin-top: 7px;
-  margin-bottom: 7px;
-  box-shadow: 5px 5px 10px rgba(0,0,0,0.5);
-}
-
-
+} */
 
 .subcard {
   display: flex;
@@ -115,32 +117,9 @@
 }
 
 .header {
-  background-color: white;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr;
-  gap: 0px 0px;
-  grid-template-areas:
-    ". inputWithButton right";
-}
-.right { 
-  display: grid;
-  grid-area: right; 
-  justify-content: end;
-  align-items: center;
-}
-
-.inputWithButton { 
-  grid-area: inputWithButton;
-  align-items: center;
-  align-self: center;
-}
-
-
-.header {
-  /* display: flex;
+  display: flex;
   justify-content: center;
-  align-content: center; */
+  align-content: center;
   height: 75px;
   width: 100%;
   position: -webkit-sticky;
@@ -157,12 +136,6 @@
   width: 500px;
   border: 1px solid black;
   box-shadow: 5px 5px 10px rgba(0,0,0,0.5);
-}
-
-.inputWithButton button {
-    
-  right: 475px;
-  top : 27px;
 }
 
 @media only screen and (max-device-width: 480px) {
@@ -183,34 +156,6 @@
     font-size: 16px;
   }
 
-  .header {
-    background-color: white;
-    border-bottom: 1px solid black;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr;
-    gap: 0px 0px;
-    grid-template-areas:
-      "inputWithButton right";
-  }
-  
-  .right { 
-    display: grid;
-    grid-area: right; 
-    justify-content: end;
-    align-self: center;
-    align-items: center;
-    margin-left: 15px;
-    margin-right: -30px;
-  }
-  
-  .inputWithButton { 
-    grid-area: inputWithButton; 
-    align-items: center;
-    align-self: center;
-  }
-  
-  
   .App {
     display: flex;
     flex-direction: row;
@@ -243,8 +188,6 @@
     justify-content: center;
   }
   
-
-
   .subcardwarr {
     display: flex;
     align-content: center;
@@ -285,16 +228,17 @@
     align-items: center;
     display: flex;
     height: 40px;
-    width: 10px;
+    width: 250px;
     border: 1px solid black;
+    /* background-color:darkgrey; */
     box-shadow: 5px 5px 10px rgba(0,0,0,0.5);
   }
 
-  /* .inputWithButton {
+  .inputWithButton {
     position: relative;
     height: 100px;
     width : 200px;
-  } */
+  }
   
   .inputWithButton input{
       width: 70%;
@@ -303,9 +247,9 @@
   }
   
   .inputWithButton button {
-    
-    right: 115px;
-    top : 15px;
+    position: absolute;
+    right: 0;
+    top : 5px;
   }
 
 }
@@ -330,7 +274,7 @@ and (max-device-width: 1024px)  {
     font-size: 16px;
   }
 
-  .newButton {
+  button {
     position: absolute;
     right: 255px;
     top : 15px;

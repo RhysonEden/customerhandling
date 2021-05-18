@@ -1,76 +1,74 @@
-.App {
+.header,
+.page {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 0px 0px;
+  grid-template-areas:
+    "left inputWithButton right"
+    "card card card";
+}
+.left {
+  grid-area: left;
   display: flex;
-  flex-direction: row;
+  align-items: center;
+}
+.inputWithButton {
+  grid-area: inputWithButton;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.buttonfirst {
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+  background-color: #81cb2f;
+  border-radius: 18px;
+  border: 1px solid black;
+  cursor: pointer;
+  color: #ffffff;
+  width: 100px;
+  height: 40px;
+}
+.submit {
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+  background-color: #81cb2f;
+  border-radius: 18px;
+  border: 1px solid black;
+  cursor: pointer;
+  color: #ffffff;
+}
+.search {
+  height: 40px;
+  width: 500px;
+  border: 1px solid black;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+}
+.right {
+  grid-area: right;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.login {
+  height: 40px;
+  width: 250px;
+  margin: 10px;
+  border: 1px solid black;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+}
+.cardmain {
+  display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   align-content: center;
-  flex-wrap: wrap;
 }
-
-.inputWithButton {
-  position: relative;
-  height: 100px;
-  width : 200px;
-  right: 10%;
-}
-
-.search {
-  display: flex;
-  align-self: center;
-}
-
-/* .inputWithButton input{
-    width: 100%;
-    height: 40px;
-    padding-right: 25px;
-} */
-
-/* .inputWithButton button {
-  position: absolute;
-  right: 0;
-  top : 15px;
-} */
-
-.newButton {
-  position: absolute;
-  right: -300px;
-}
-
-.myButton {
-	box-shadow: 5px 5px 10px rgba(0,0,0,0.5);
-	background-color:#81cb2f;;
-	border-radius:18px;
-	border:1px solid black;
-	cursor:pointer;
-	color:#ffffff;
-	text-shadow:0px 1px 0px #810e05;
-}
-.myButton:hover {
-	background:linear-gradient(to bottom, #f24437 5%, #c62d1f 100%);
-	background-color:#f24437;
-}
-.myButton:active {
-	position:relative;
-	top:1px;
-}
-
-
-button {
-  position: absolute;
-  right: 475px;
-  top : 13px;
-  box-shadow: 5px 5px 10px rgba(0,0,0,0.5);
-	background-color:#81cb2f;;
-	border-radius:18px;
-	border:1px solid black;
-	cursor:pointer;
-	color:#ffffff;
-}
-
-.card {
+.card,
+.page {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  width: 32%;
+  width: 30%;
   border: 1px solid black;
   justify-content: center;
   align-content: center;
@@ -79,15 +77,20 @@ button {
   margin-bottom: 5px;
   margin-left: 5px;
   margin-right: 5px;
-  box-shadow: 5px 5px 10px rgba(0,0,0,0.5);
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+}
+.form-input {
+  border: 2px solid black;
+  margin: 1px;
+}
+.page,
+.form-input {
+  width: 100%;
 }
 
-/* .header {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-content: center;
-} */
+.page {
+  height: 100%;
+}
 
 .subcard {
   display: flex;
@@ -113,249 +116,13 @@ button {
   background-color: #319ac2;
   border-bottom: 1px solid black;
   background-color: #a1d7e6;
-  
 }
 
 .header {
-  display: flex;
-  justify-content: center;
-  align-content: center;
-  height: 75px;
+  background-color: white;
+  height: 50px;
   width: 100%;
   position: -webkit-sticky;
   position: sticky;
   top: 0;
-}
-
-.search {  
-  align-content: center;
-  justify-content: center;
-  align-items: center;
-  display: flex;
-  height: 40px;
-  width: 500px;
-  border: 1px solid black;
-  box-shadow: 5px 5px 10px rgba(0,0,0,0.5);
-}
-
-@media only screen and (max-device-width: 480px) {
-  select,
-  textarea,
-  input[type="text"],
-  input[type="password"],
-  input[type="datetime"],
-  input[type="datetime-local"],
-  input[type="date"],
-  input[type="month"],
-  input[type="time"],
-  input[type="week"],
-  input[type="number"],
-  input[type="email"],
-  input[type="tel"],
-  input[type="url"] {
-    font-size: 16px;
-  }
-
-  .App {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-content: center;
-    flex-wrap: wrap;
-  }
-  
-  .card {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    width: 100%;
-    border: 1px solid black;
-    justify-content: center;
-    align-content: center;
-    align-self: center;
-    margin-top: 2px;
-    margin-bottom: 8px;
-    margin-left: 2px;
-    margin-right: 2px;
-    box-shadow: 5px 5px 10px rgba(0,0,0,0.5);
-  }
-  
-  .subcard {
-    display: flex;
-    align-self: center;
-    background-color: #319ac2;
-    width: 100%;
-    justify-content: center;
-  }
-  
-  .subcardwarr {
-    display: flex;
-    align-content: center;
-    justify-content: center;
-    align-self: center;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    border-bottom: 1px solid black;
-    width: 100%;
-    background-color: #81cb2f;
-  }
-  
-  .subcardhead {
-    background-color: #319ac2;
-    border-bottom: 1px solid black;
-    background-color: #a1d7e6;
-    
-  }
-  
-  .search {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-content: center;
-  }
-  
-  .header {
-    display: flex;
-    justify-content: center;
-    align-content: center;
-    height: 50px;
-    width: 100%;
-  }
-  
-  .search {
-    align-content: center;
-    justify-content: center;
-    align-items: center;
-    display: flex;
-    height: 40px;
-    width: 250px;
-    border: 1px solid black;
-    /* background-color:darkgrey; */
-    box-shadow: 5px 5px 10px rgba(0,0,0,0.5);
-  }
-
-  .inputWithButton {
-    position: relative;
-    height: 100px;
-    width : 200px;
-  }
-  
-  .inputWithButton input{
-      width: 70%;
-      height: 25px;
-      padding-right: 60px;
-  }
-  
-  .inputWithButton button {
-    position: absolute;
-    right: 0;
-    top : 5px;
-  }
-
-}
-
-@media only screen 
-and (max-device-width: 768px)
-and (max-device-width: 1024px)  {
-  select,
-  textarea,
-  input[type="text"],
-  input[type="password"],
-  input[type="datetime"],
-  input[type="datetime-local"],
-  input[type="date"],
-  input[type="month"],
-  input[type="time"],
-  input[type="week"],
-  input[type="number"],
-  input[type="email"],
-  input[type="tel"],
-  input[type="url"] {
-    font-size: 16px;
-  }
-
-  button {
-    position: absolute;
-    right: 255px;
-    top : 15px;
-  }
-
-  .App {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-content: center;
-    flex-wrap: wrap;
-  }
-  
-  .card {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    width: 100%;
-    border: 1px solid black;
-    justify-content: center;
-    align-content: center;
-    align-self: center;
-    margin-top: 2px;
-    margin-bottom: 8px;
-    margin-left: 2px;
-    margin-right: 2px;
-    box-shadow: 5px 5px 10px rgba(0,0,0,0.5);
-  }
-  
-  .subcard {
-    display: flex;
-    align-self: center;
-    background-color: #319ac2;
-    width: 100%;
-    justify-content: center;
-  }
-  
-  .subcardwarr {
-    display: flex;
-    align-content: center;
-    justify-content: center;
-    align-self: center;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    border-bottom: 1px solid black;
-    width: 100%;
-    background-color: #81cb2f;
-  }
-  
-  .subcardhead {
-    background-color: #319ac2;
-    border-bottom: 1px solid black;
-    background-color: #a1d7e6;
-    
-  }
-  
-  .search {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-content: center;
-  }
-  
-  .header {
-    display: flex;
-    justify-content: center;
-    align-content: center;
-    height: 50px;
-    width: 100%;
-  }
-  
-  .search {
-    align-content: center;
-    justify-content: center;
-    align-items: center;
-    display: flex;
-    height: 40px;
-    width: 250px;
-    border: 1px solid black;
-    /* background-color:darkgrey; */
-    box-shadow: 5px 5px 10px rgba(0,0,0,0.5);
-  }
-
 }

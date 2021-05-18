@@ -3,6 +3,7 @@ import React from "react";
 const Card = ({ clients, searchInput, setSearchInput }) => {
   return (
     <div className="App">
+      <div className="cardmain">
       {clients
         .filter((client) => {
           const clientsId = client.gvr.toLowerCase();
@@ -61,6 +62,7 @@ const Card = ({ clients, searchInput, setSearchInput }) => {
             <li className="subcard">Dispatch Tech : {client.dispout}</li>
           </div>
         ))}
+        </div>
     </div>
   );
 };

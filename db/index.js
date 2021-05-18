@@ -43,14 +43,14 @@ async function getAllClients() {
   return rows;
 }
 
-async function createUser({ username, password, email, admin }) {
+async function createUser({ username, password, email, admin, change }) {
   try {
     const result = await client.query(
       `
-      INSERT INTO users(username, password, email, admin)
-      VALUES ($1, $2, $3, $4);
+      INSERT INTO users(username, password, email, admin, change)
+      VALUES ($1, $2, $3, $4, $5);
     `,
-      [username, password, email, admin]
+      [username, password, email, admin, change]
     );
 
     return result;
@@ -77,6 +77,7 @@ async function createPart({ number, descr, price }) {
 
 async function getAdminByUsername(username) {
   try {
+    let end;
     const { rows } = await client.query(
       `
       SELECT admin 
@@ -85,7 +86,16 @@ async function getAdminByUsername(username) {
     `,
       [username]
     );
-    return rows;
+    Object.values(rows).forEach((key) => {
+      console.log(key.admin);
+      if (key.admin === "true") {
+        return (end = true);
+      } else {
+        return (end = false);
+      }
+    });
+    console.log(end);
+    return end;
   } catch (error) {
     throw error;
   }

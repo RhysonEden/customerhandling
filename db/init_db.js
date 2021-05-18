@@ -1,7 +1,6 @@
 const bcrypt = require("bcrypt");
 const SALT_COUNT = 10;
-const { client, getClientById, getAllClients,   createUser,
-} = require("./index");
+const { client, getClientById, getAllClients, createUser } = require("./index");
 
 async function createTables() {
   try {
@@ -12,9 +11,32 @@ async function createTables() {
       username varchar UNIQUE NOT NULL,
       password varchar NOT NULL,
       email varchar NOT NULL,
-      admin varchar NOT NULL
+      admin varchar NOT NULL,
+      change varchar
       );
-`);
+      CREATE TABLE handling (
+  id SERIAL PRIMARY KEY,
+  gvr varchar UNIQUE NOT NULL,
+  comp varchar NOT NULL,
+  name varchar NOT NULL,
+  street varchar NOT NULL,
+  city varchar NOT NULL,
+  state varchar NOT NULL,
+  zip varchar NOT NULL,
+  number varchar NOT NULL,
+  warranty varchar,
+  email1 varchar NOT NULL,
+  email2 varchar NOT NULL,
+  noticewar varchar NOT NULL,
+  remodiagwar varchar NOT NULL,
+  remrepwar varchar NOT NULL,
+  dispwar varchar NOT NULL,
+  noticeout varchar NOT NULL,
+  remdiagout varchar NOT NULL,
+  remrepout varchar NOT NULL,
+  dispout varchar NOT NULL
+)
+ `);
     console.log("Finished Creating Table");
   } catch (error) {
     throw error;
@@ -51,9 +73,21 @@ async function createInitialUsers() {
     await new Promise((resolve, reject) => {
       bcrypt.hash("gft2020", SALT_COUNT, async function (err, hashedPassword) {
         const david = await createUser({
-          username: "david",
+          username: "scott",
           password: hashedPassword,
-          email: "DMcMichael@guardianfueltech.com",
+          email: "GuardianConnect@guardianfueltech.com",
+          admin: false,
+        });
+        resolve();
+      });
+    });
+
+    await new Promise((resolve, reject) => {
+      bcrypt.hash("gft2020", SALT_COUNT, async function (err, hashedPassword) {
+        const david = await createUser({
+          username: "forrest",
+          password: hashedPassword,
+          email: "GuardianConnect@guardianfueltech.com",
           admin: false,
         });
         resolve();
@@ -63,10 +97,10 @@ async function createInitialUsers() {
     await new Promise((resolve, reject) => {
       bcrypt.hash("gft2020", SALT_COUNT, async function (err, hashedPassword) {
         const admin = await createUser({
-          username: "@dm1ngft1",
+          username: "nels",
           password: hashedPassword,
           email: "GuardianConnect@guardianfueltech.com",
-          admin: true,
+          admin: false,
         });
         resolve();
       });
@@ -78,7 +112,8 @@ async function createInitialUsers() {
           username: "james",
           password: hashedPassword,
           email: "jgale@guardianfueltech.com",
-          admin: false,
+          admin: true,
+          change: 1,
         });
         resolve();
       });
@@ -86,43 +121,24 @@ async function createInitialUsers() {
     await new Promise((resolve, reject) => {
       bcrypt.hash("gft2020", SALT_COUNT, async function (err, hashedPassword) {
         const chris = await createUser({
-          username: "chris",
+          username: "sydney",
           password: hashedPassword,
-          email: "cfielder@guardianfueltech.com",
+          email: "GuardianConnect@guardianfueltech.com",
           admin: false,
         });
         resolve();
       });
     });
     await new Promise((resolve, reject) => {
-      bcrypt.hash(
-        "gc@gft2020",
-        SALT_COUNT,
-        async function (err, hashedPassword) {
-          const callcenter = await createUser({
-            username: "gftcenter",
-            password: hashedPassword,
-            email: "Guardianresourcecenter@guardianfueltech.com",
-            admin: false,
-          });
-          resolve();
-        }
-      );
-    });
-    await new Promise((resolve, reject) => {
-      bcrypt.hash(
-        "mr@gft2020",
-        SALT_COUNT,
-        async function (err, hashedPassword) {
-          const monica = await createUser({
-            username: "monica",
-            password: hashedPassword,
-            email: "mriley@guardianfueltech.com",
-            admin: false,
-          });
-          resolve();
-        }
-      );
+      bcrypt.hash("gft2020", SALT_COUNT, async function (err, hashedPassword) {
+        const callcenter = await createUser({
+          username: "gftcenter",
+          password: hashedPassword,
+          email: "GuardianConnect@guardianfueltech.com",
+          admin: false,
+        });
+        resolve();
+      });
     });
     console.log("Finished creating users!");
   } catch (error) {
@@ -131,12 +147,12 @@ async function createInitialUsers() {
   }
 }
 
-
 async function dropTables() {
   try {
     console.log("Starting to drop tables...");
     await client.query(`
       DROP TABLE IF EXISTS users;
+      DROP TABLE IF EXISTS handling;
       `);
 
     console.log("Finished dropping tables!");

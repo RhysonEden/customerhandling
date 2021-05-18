@@ -1,14 +1,12 @@
 import React, { useState } from "react";
 
 const SearchBar = ({ searchInput, setSearchInput }) => {
+  
   const handleTextChange = (e) => {
     setSearchInput(e.target.value);
   };
 
-  const handleClear = (e) => {
-    e.preventDefault();
-    setSearchInput("")
-  }
+
 
   return (
     <div className='inputWithButton'>
@@ -20,8 +18,7 @@ const SearchBar = ({ searchInput, setSearchInput }) => {
           value={searchInput}
           onChange={handleTextChange}
         />
-        <button className="newButton" onClick={handleClear}>Clear</button>
-      {/* </form> */}
+        {/* </form> */}
       
     </div>
   );

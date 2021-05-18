@@ -35,7 +35,6 @@ function Login({ main, setMain }) {
           alert.show("Invalid Username or Password");
         } else {
           alert.show("Login Successfull");
-          setUser(username);
           cancelCourse();
         }
       });
@@ -46,9 +45,9 @@ function Login({ main, setMain }) {
 
   return (
     <div className="page">
-      <form id="create">
+      <form className="inputWithButton">
         <input
-          className="form-input"
+          className="login"
           type="text"
           id="link"
           value={user}
@@ -56,16 +55,16 @@ function Login({ main, setMain }) {
           onChange={changeUser}
         ></input>
         <input
-          className="form-input"
+          className="login"
           type="password"
           id="comment"
           value={password}
           placeholder="Enter Password"
           onChange={changePassword}
         ></input>
-          <button className="submit" onClick={handleSubmit}>
-            Submit
-          </button>
+        <button className="buttonfirst" onClick={handleSubmit}>
+          Submit
+        </button>
       </form>
     </div>
   );

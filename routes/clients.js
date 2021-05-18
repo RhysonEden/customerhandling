@@ -9,7 +9,7 @@ clientRouter.get("/clients", async (req, res, next) => {
   try {
     console.log("running");
     const clients = await getAllClients();
-    console.log(clients);
+    // console.log(clients);
     // getAllclients();
     // res.send({
     //   message: "clients is under construction!",
