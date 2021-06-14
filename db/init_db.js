@@ -47,7 +47,7 @@ async function createTables() {
 async function createInitialUsers() {
   try {
     console.log("Starting to create users...");
-    let jamesPassword = "gft2020";
+    let jamesPassword = "kaelyn09";
     await new Promise((resolve, reject) => {
       bcrypt.hash("gft2020", SALT_COUNT, async function (err, hashedPassword) {
         const david = await createUser({

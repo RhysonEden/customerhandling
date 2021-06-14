@@ -63,6 +63,9 @@ const Header = ({ searchInput, setSearchInput }) => {
           <button className="buttonfirst" onClick={handleClear}>
             Clear
           </button>
+          <button className="buttonfirst" onClick={handleMain}>
+            Main
+          </button>
           <button className="buttonfirst" onClick={logout}>
             Logout
           </button>
