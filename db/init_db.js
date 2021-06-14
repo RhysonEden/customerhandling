@@ -60,17 +60,17 @@ async function createInitialUsers() {
       });
     });
 
-    await new Promise((resolve, reject) => {
-      bcrypt.hash("gft2020", SALT_COUNT, async function (err, hashedPassword) {
-        const david = await createUser({
-          username: "forrest",
-          password: hashedPassword,
-          email: "GuardianConnect@guardianfueltech.com",
-          admin: false,
-        });
-        resolve();
-      });
-    });
+    // await new Promise((resolve, reject) => {
+    //   bcrypt.hash("gft2020", SALT_COUNT, async function (err, hashedPassword) {
+    //     const david = await createUser({
+    //       username: "forrest",
+    //       password: hashedPassword,
+    //       email: "GuardianConnect@guardianfueltech.com",
+    //       admin: false,
+    //     });
+    //     resolve();
+    //   });
+    // });
 
     await new Promise((resolve, reject) => {
       bcrypt.hash("gft2020", SALT_COUNT, async function (err, hashedPassword) {

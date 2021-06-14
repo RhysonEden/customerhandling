@@ -67,7 +67,6 @@ const Header = ({ searchInput, setSearchInput }) => {
             Logout
           </button>
         </div>
-
         <div className="left">Hello, {user}!</div>
       </div>
     );
