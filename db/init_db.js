@@ -21,6 +21,8 @@ async function createTables() {
   }
 }
 
+//Notes for test
+
 // CREATE TABLE handling (
 //   id SERIAL PRIMARY KEY,
 //   gvr varchar UNIQUE NOT NULL,
