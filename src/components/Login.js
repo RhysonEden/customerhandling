@@ -11,7 +11,7 @@ function Login({ main, setMain }) {
   const alert = useAlert();
   const history = useHistory();
   const users = username.toLowerCase();
-  const pword = password.toLowerCase();
+  // const pword = password.toLowerCase();
 
   const changeUser = (e) => {
     setUsername(e.target.value);
@@ -30,7 +30,7 @@ function Login({ main, setMain }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await loginUser(users, pword).then((resp) => {
+      await loginUser(users, password).then((resp) => {
         if (!resp) {
           alert.show("Invalid Username or Password");
         } else {

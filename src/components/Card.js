@@ -10,6 +10,10 @@ const Card = ({ clients, searchInput, setSearchInput }) => {
             if (clientsId.includes(searchInput.toLowerCase())) {
               return true;
             }
+            const gpId = client.gpcus.toLowerCase();
+            if (gpId.includes(searchInput.toLowerCase())) {
+              return true;
+            }
             const companyName = client.comp.toLowerCase();
             if (companyName.includes(searchInput.toLowerCase())) {
               return true;
@@ -21,34 +25,20 @@ const Card = ({ clients, searchInput, setSearchInput }) => {
             const storeStreet = client.street.toLowerCase();
             if (storeStreet.includes(searchInput.toLowerCase())) {
               return true;
-            }
-            const storeState = client.state.toLowerCase();
-            if (storeState.includes(searchInput.toLowerCase())) {
-              return true;
-            }
-            const storeZip = client.zip.toLowerCase();
-            if (storeZip.includes(searchInput.toLowerCase())) {
-              return true;
             } else {
               return false;
             }
           })
           .map((client, index) => (
             <div key={index} className="card">
+              {console.log(client, "client")}
               <div className="subcardhead">GVR ID : {client.gvr}</div>
+              <div className="subcardhead">
+                GP Customer Number : {client.gpcus}
+              </div>
               <div className="subcardhead">Company Name : {client.comp}</div>
               <div className="subcardhead">Store Name : {client.name}</div>
-              <div className="subcardhead">
-                Store Phone Number :{" "}
-                <a href={`tel:${client.number}`}>{client.number}</a>
-              </div>
-              <div className="subcardhead">
-                Store Street Address: {client.street},
-              </div>
-              <div className="subcardhead">
-                Store City/State/Zip : {client.city}, {client.state}{" "}
-                {client.zip}
-              </div>
+              <div className="subcardhead">Store Address: {client.street},</div>
               <div className="subcardwarr">
                 Warranty Expiration : {client.warranty}
               </div>

@@ -14,6 +14,28 @@ async function createTables() {
       admin varchar NOT NULL,
       change varchar
       );
+            CREATE TABLE handling (
+  id SERIAL PRIMARY KEY,
+  gvr varchar UNIQUE ,
+  gpcus varchar ,
+  comp varchar ,
+  name varchar ,
+  street varchar ,
+  gctype varchar ,
+  warranty varchar,
+  email1 varchar ,
+  email2 varchar ,
+  noticewar varchar ,
+  remodiagwar varchar ,
+  remrepwar varchar ,
+  dispwar varchar ,
+  noticeout varchar ,
+  remdiagout varchar ,
+  remrepout varchar ,
+  dispout varchar ,
+  actdate varchar
+);
+
  `);
     console.log("Finished Creating Table");
   } catch (error) {
@@ -23,33 +45,32 @@ async function createTables() {
 
 //Notes for test
 
-// CREATE TABLE handling (
+//       CREATE TABLE handling (
 //   id SERIAL PRIMARY KEY,
-//   gvr varchar UNIQUE NOT NULL,
-//   comp varchar NOT NULL,
-//   name varchar NOT NULL,
-//   street varchar NOT NULL,
-//   city varchar NOT NULL,
-//   state varchar NOT NULL,
-//   zip varchar NOT NULL,
-//   number varchar NOT NULL,
+//   gvr varchar UNIQUE ,
+//   gpcus varchar ,
+//   comp varchar ,
+//   name varchar ,
+//   street varchar ,
+//   gctype varchar ,
 //   warranty varchar,
-//   email1 varchar NOT NULL,
-//   email2 varchar NOT NULL,
-//   noticewar varchar NOT NULL,
-//   remodiagwar varchar NOT NULL,
-//   remrepwar varchar NOT NULL,
-//   dispwar varchar NOT NULL,
-//   noticeout varchar NOT NULL,
-//   remdiagout varchar NOT NULL,
-//   remrepout varchar NOT NULL,
-//   dispout varchar NOT NULL
-// )
+//   email1 varchar ,
+//   email2 varchar ,
+//   noticewar varchar ,
+//   remodiagwar varchar ,
+//   remrepwar varchar ,
+//   dispwar varchar ,
+//   noticeout varchar ,
+//   remdiagout varchar ,
+//   remrepout varchar ,
+//   dispout varchar ,
+//   actdate varchar
+// );
 
 async function createInitialUsers() {
   try {
     console.log("Starting to create users...");
-    let jamesPassword = "kaelyn09";
+    let jamesPassword = "K@elyn819";
     await new Promise((resolve, reject) => {
       bcrypt.hash("gft2020", SALT_COUNT, async function (err, hashedPassword) {
         const david = await createUser({
@@ -138,6 +159,7 @@ async function dropTables() {
     console.log("Starting to drop tables...");
     await client.query(`
       DROP TABLE IF EXISTS users;
+      DROP TABLE IF EXISTS handling;
       `);
 
     console.log("Finished dropping tables!");

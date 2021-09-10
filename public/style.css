@@ -80,7 +80,8 @@
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  width: 30%;
+  width: 32%;
+  height: 28em;
   border: 1px solid black;
   justify-content: center;
   align-content: center;
@@ -90,6 +91,7 @@
   margin-left: 5px;
   margin-right: 5px;
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+  background-color: #319ac2;
 }
 .form-input {
   border: 2px solid black;
