@@ -82,19 +82,33 @@ const Card = ({ clients, searchInput, setSearchInput }) => {
                         return null;
                     }
                   })()}
-                  <div className="subcardhead">
-                    Primary Contact E-Mail :{" "}
-                    <a href={`mailto:${client.email1}`}>{client.email1}</a>
-                  </div>
-                  <div className="subcardhead">
-                    Secondary Contact E-Mail :{" "}
-                    <a href={`mailto:${client.email2}`}>{client.email2} </a>
-                  </div>
-                  <div className="subcardhead">
-                    <a href={`mailto:${client.email1}, ${client.email2}`}>
-                      Email Both
-                    </a>
-                  </div>
+                  {client.email1 === "N/A" ? (
+                    <div className="subcardheadno">
+                      No Contact E-mail Provided
+                    </div>
+                  ) : (
+                    <div className="subcardhead">
+                      Primary Contact E-Mail :{" "}
+                      <a href={`mailto:${client.email1}`}>{client.email1}</a>
+                    </div>
+                  )}
+                  {client.email2 === "N/A" ? null : (
+                    <>
+                      <div className="subcardhead">
+                        Secondary Contact E-Mail :{" "}
+                        <a href={`mailto:${client.email2}`}>{client.email2} </a>
+                      </div>
+
+                      <div className="subcardheadcenter">
+                        <a
+                          href={`mailto:${client.email1}, ${client.email2}`}
+                          className="center"
+                        >
+                          Email Both
+                        </a>
+                      </div>
+                    </>
+                  )}
                   <div className="subcardwarr">Warranty Handling</div>
                   <li className="subcard">
                     Send Notification Email (
