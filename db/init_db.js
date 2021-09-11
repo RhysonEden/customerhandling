@@ -14,27 +14,7 @@ async function createTables() {
       admin varchar NOT NULL,
       change varchar
       );
-            CREATE TABLE handling (
-  id SERIAL PRIMARY KEY,
-  gvr varchar UNIQUE ,
-  gpcus varchar ,
-  comp varchar ,
-  name varchar ,
-  street varchar ,
-  gctype varchar ,
-  warranty varchar,
-  email1 varchar ,
-  email2 varchar ,
-  noticewar varchar ,
-  remodiagwar varchar ,
-  remrepwar varchar ,
-  dispwar varchar ,
-  noticeout varchar ,
-  remdiagout varchar ,
-  remrepout varchar ,
-  dispout varchar ,
-  actdate varchar
-);
+
 
  `);
     console.log("Finished Creating Table");
@@ -159,7 +139,6 @@ async function dropTables() {
     console.log("Starting to drop tables...");
     await client.query(`
       DROP TABLE IF EXISTS users;
-      DROP TABLE IF EXISTS handling;
       `);
 
     console.log("Finished dropping tables!");
