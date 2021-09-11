@@ -199,7 +199,7 @@
     height: 215px;
   }
 
-  .page {
+  /* .page {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr;
@@ -208,7 +208,7 @@
       "right right right right"
       "inputWithButton inputWithButton inputWithButton inputWithButton"
       "left left";
-  }
+  } */
   .inputWithButton {
     margin-bottom: 10px;
   }
@@ -217,11 +217,11 @@
     grid-area: inputWithButton;
     width: 100%;
   }
-  .right {
+  /* .right {
     grid-area: right;
     width: 100%;
     margin-bottom: 1em;
-  }
+  } */
   .inputWithButtonTwo {
     display: flex;
     flex-direction: column;
@@ -251,12 +251,10 @@
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    height: 130px;
+    height: 9em;
     width: 100%;
   }
-  .left {
-    grid-area: left;
-  }
+
   .loading {
     display: flex;
     align-content: center;
@@ -265,5 +263,30 @@
     margin-left: 8em;
     height: 100px;
     width: 100px;
+  }
+  .page {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      "inputWithButton inputWithButton inputWithButton"
+      "right right right"
+      "left left left";
+  }
+
+  .inputWithButton {
+    grid-area: inputWithButton;
+  }
+
+  .right {
+    grid-area: right;
+    width: 100%;
+    margin-bottom: auto;
+  }
+
+  .left {
+    grid-area: left;
   }
 }
