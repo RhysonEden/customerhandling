@@ -46,7 +46,11 @@ const App = () => {
     return (
       <Brouter>
         <div>
-          <Header searchInput={searchInput} setSearchInput={setSearchInput} />
+          <Header
+            searchInput={searchInput}
+            setSearchInput={setSearchInput}
+            clients={clients.length}
+          />
           <Switch>
             <Card
               path="/"

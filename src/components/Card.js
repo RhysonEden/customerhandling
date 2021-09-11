@@ -11,6 +11,7 @@ const Card = ({ clients, searchInput, setSearchInput }) => {
   }, []);
   return (
     <>
+      {console.log(clients.length)}
       {loading ? (
         <div className="AppLoading">
           <img src={logo} alt="Loading..." className="loading" />
