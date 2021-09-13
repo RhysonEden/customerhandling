@@ -3,9 +3,9 @@ import SearchBar from "./Search";
 import { useHistory } from "react-router-dom";
 import { getAdminInfo } from "../api";
 
-const Header = ({ searchInput, setSearchInput, clients }) => {
+const Header = ({ searchInput, setSearchInput, clients, admin }) => {
   const capital = sessionStorage.getItem("user");
-  const admin = sessionStorage.getItem("admin");
+
   const user = capital.charAt(0).toUpperCase() + capital.slice(1);
   const history = useHistory();
 
@@ -73,7 +73,10 @@ const Header = ({ searchInput, setSearchInput, clients }) => {
             Logout
           </button>
         </div>
-        <div className="left">Hello, {user}!</div>
+        <div className="left">
+          <div className="space">Hello, {user}! </div>
+          <div className="space">We have {clients} clients connected!</div>
+        </div>
       </div>
     );
   }

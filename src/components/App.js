@@ -11,6 +11,7 @@ import Password from "./PasswordChange";
 const App = () => {
   const [clients, setClient] = useState([]);
   const [searchInput, setSearchInput] = useState("");
+  const admin = sessionStorage.getItem("admin");
   let user = sessionStorage.getItem("user");
   let change = sessionStorage.getItem("change");
   useEffect(() => {
@@ -50,6 +51,7 @@ const App = () => {
             searchInput={searchInput}
             setSearchInput={setSearchInput}
             clients={clients.length}
+            admin={admin}
           />
           <Switch>
             <Card
@@ -59,6 +61,7 @@ const App = () => {
               clients={clients}
               searchInput={searchInput}
               setSearchInput={setSearchInput}
+              admin={admin}
             />
             <Admin path="/admin" exact component={Admin} />
           </Switch>

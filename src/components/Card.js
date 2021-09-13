@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import logo from "../assests/logo.gif";
-const Card = ({ clients, searchInput, setSearchInput }) => {
+const Card = ({ clients, searchInput, setSearchInput, admin }) => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -141,6 +141,7 @@ const Card = ({ clients, searchInput, setSearchInput }) => {
                   <div className="subcardwarr">
                     Site Active Since : {client.actdate}
                   </div>
+                  {admin === "true" ? <button>Edit</button> : null}
                 </div>
               ))}
           </div>
